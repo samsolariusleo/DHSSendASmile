@@ -1,24 +1,147 @@
-#logo {
-	width: 10%;
-	float: left;
+/* Body Stuff */
+
+body {
+	background-color: #556270;
+}
+
+/* Stuff in the Header */
+
+header {
+	text-align: center;
 	margin: 2%;
-	position: fixed;
+	margin-top: 1%;
+}
+
+#logo {
+	width: 170px;
+	float: left;
+	padding: 10px;
+	background-color: #4ecdc4;
 }
 
 h1 {
-	font-family: 'Skranji', cursive;
-	float: top;
-	font-size: 60px;
-	margin: 2%;
-	border: 5px solid red;
-	position: fixed;
+	font-family: 'Unica One', cursive;
+	font-size: 80px;
+	margin-left: 210px;
+	margin-bottom: 1%;
+	background-color: #4ecdc4;
 }
 
+/* Status Bar */
+
+#status {
+	background-color: #c44d58;
+	margin-left: 210px;
+	margin-top: 20px;
+	height: 50px;
+}
+
+#status_update {
+	width: 50%;
+	height: 75%;
+	float: left;
+	margin-left: 20px;
+	margin-top: 5px;
+	text-indent: 10px;
+}
+
+#status_btn {
+	height: 75%;
+	float: left;
+	margin-left: 10px;
+	margin-top: 5px;
+}
+
+#status h2 {
+	float: left;
+	display: inline;
+	text-align: left;
+	text-indent: 20px;
+	margin-top: 10px;
+}
+
+/* Stuff in the mid-section */
+
+#mid {
+	margin: 2%;
+}
+
+/* Nav bar */
+
+li {
+	font-family: 'Unica One', cursive;
+	font-size: 30px;
+}
+
+ul {
+	list-style-type: none;
+	width: 170px;
+	padding: 10px;
+	background-color: #c7f464;
+	float: left;
+	clear: both;
+}
+
+ul #search_btn {
+	border: 1px solid grey;
+	display: inline;
+	background-color: #c7f464;
+}
+
+#search {
+	width: 68.25%;
+	height: 30px;
+}
+
+/* Main Content */
+
+#main {
+	background-color: #ff6b6b;
+	margin-left: 210px;
+	text-indent: 20px;
+}
+
+#main h2 {
+	font-size: 70px;
+}
+
+blockquote .self {
+	background-color: #4ecdc4;
+}
+
+blockquote {
+	font-family: 'Patrick Hand SC', cursive;
+	font-size: 24px;
+	background-color: #c7f464;
+	opacity: 0.8;
+}
+
+span {
+	float: right;
+	margin-right: 20px;
+	font-family: 'Unica One', cursive;
+	font-size: 24px;
+}
+
+/* Other stuff */
+
 h2 {
-	font-family: 'Neutraface', sans-serif;
+	font-family: 'Dosis', sans-serif;
 }
 
 p {
-	font-family: 'News Gothic', 'Myriad', 'Tahoma', sans-serif;
+	font-family: 'Patrick Hand SC', cursive;
+	font-size: 32px;
 }
 
+/* Footer */
+
+footer {
+	padding: 5px;
+	margin: 2%;
+	font-family: 'Dosis', sans-serif;
+	background-color: #4ecdc4;
+	font-size: 15px;
+	clear: both;
+	text-align: center;
+}
