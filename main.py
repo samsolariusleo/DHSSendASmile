@@ -1,28 +1,35 @@
-import webapp2	# web application framework
-import jinja2	# template engine
-import os		# access file system
-import datetime # format date time
-from google.appengine.api import users	# Google account authentication
-from google.appengine.ext import db		# datastore
-from google.appengine.api import mail	# send email
+import webapp2
 
-# initialize template
-jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
+form = '''
+<form method='post'>
+	What is your birthday?
+	<br>
+	<label> Month
+		<input type='text' name='month'>
+	</label> Day
+	<label>
+		<input type='text' name='day'>
+	</label>
+	<label> Year
+		<input type='text' name='year'>
+	</label>
+	<input type='submit'>
+</form>
+'''
 
 class MainPage(webapp2.RequestHandler):
-	def get(self):
-		user = users.get_current_user()
-		
-		template_values = {}
-		
-		if user:
-			template = jinja_environment.get_template('index.html')
-		
-		else:
-			self.redirect(users.create_login_url(self.request.uri))
-			
-		self.response.write(template.render(template_values))
-			
-# main
+  def get(self):
+      self.response.out.write(form)
+
+  def post(self):
+	  user_month = valid_month(self.request.get("month"))
+	  user_day = valid_day(self.request.get("day"))
+	  user_year = valid_year(self.request.get("year"))
+	  
+	  if not (user_month and user_day and user_year):
+		  self.response.out.write(form)
+	  else:
+	  self.response.out.write("Thanks! That's a totally valid day!")
+
 app = webapp2.WSGIApplication([('/', MainPage)],
                               debug=True)
