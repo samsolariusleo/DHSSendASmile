@@ -1,0 +1,200 @@
+<DOCTYPE html>
+<html>
+	<head>
+		<meta charset='UTF-8'/>
+		<title>DHS Send A Smile :)</title>
+		
+		<!-- JQM Structure -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile.structure-1.3.0.min.css" />
+		<link rel="stylesheet" href="static/js/jquery.mobile-1.3.0.min.css" />
+		<link rel="stylesheet" href="static/js/jquery.mobile.structure-1.3.0.min.css" />
+		<!-- JQM Custom Theme -->
+		<link rel="stylesheet" href="static/js/jquery.mobile.theme-1.3.0.min.css" />
+		<!-- JQ Core -->
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<!-- JQM -->
+		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+		<script src="/static/js/jquery.mobile-1.3.0.min.js"></script>
+		
+		<!-- viewport -->
+		<meta name="viewport" content="width=device-width">
+		<!-- iOS stuff -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="white">
+		<!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+		<meta http-equiv="cleartype" content="on">
+		<!-- For mobile browsers that do not recognize the viewport tag -->
+		<meta name="MobileOptimized" content="320" />
+	</head>
+	<body>
+		<div data-role="page" data-title="Notifications" id="notifications">
+			<header data-role="header">
+				<a href="#" data-icon="arrow-l">Sign Out</a>
+				<h1>DHS Send A Smile :)</h1>
+			</header>
+			<div data-role="content">
+				<script>
+					$('#mylist').listview('refresh');
+				</script>
+			
+			</div>
+			<footer data-role="footer" data-theme="c" data-position="fixed">
+				<div class="footer-nav" data-role="navbar">
+					<ul>
+						<li><a href="#profile" id="profile-button" data-icon="bars">Profile</a></li>
+						<li><a href="#notifications" id="notifications-button" data-icon="alert">Notifications</a>
+						</li>
+						<li><a href="#favourites" id="favourites-button" data-icon="star">Favourites</a></li>
+						<li><a href="#search" id="search-button" data-icon="gear">Search</a></li>
+						<li><a href="#smile" id="smile-button" data-icon="custom">Send A Smile</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+		
+		<div data-role="page" data-title="My Profile" id="profile">
+			<header data-role="header">
+				<a href="#" data-icon="arrow-l">Sign Out</a>
+				<h1>DHS Send A Smile :)</h1>
+			</header>
+			<div data-role="content">
+				<script>
+					$('#mylist').listview('refresh');
+				</script>
+				<ul class="profilelist" data-role="listview">
+					{{ }}	<!-- Contains your database element -->
+					<li>
+						<img src="{{thumb}}" alt="{{author}}" height="80px" width="80px">
+						<h3>{{author}}</h3>
+						<p><a href="{{url}}">{{message}}</a></p>
+						<p style="text-align: right">{{editingbar}}</p>
+					</li>
+					{{ }}
+				</ul>
+			</div>
+			<footer data-role="footer" data-theme="c" data-position="fixed">
+				<div class="footer-nav" data-role="navbar">
+					<ul>
+						<li><a href="#profile" id="profile-button" data-icon="bars">Profile</a></li>
+						<li><a href="#notifications" id="notifications-button" data-icon="alert">Notifications</a>
+						</li>
+						<li><a href="#favourites" id="favourites-button" data-icon="star">Favourites</a></li>
+						<li><a href="#search" id="search-button" data-icon="gear">Search</a></li>
+						<li><a href="#smile" id="smile-button" data-icon="custom">Send A Smile</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+		
+		<div data-role="page" data-title="My Favourites" id="favourites">
+			<header data-role="header">
+				<a href="#" data-icon="arrow-l">Sign Out</a>
+				<h1>DHS Send A Smile :)</h1>
+			</header>
+			<div data-role="content">
+				<script>
+					$('#mylist').listview('refresh');
+				</script>
+				<ul class="favouriteslist" data-role="listview">
+					{{ }}	<!-- Contains your database element -->
+					<li>
+						<img src="{{thumb}}" alt="{{author}}" height="80px" width="80px">
+						<h3>{{author}}</h3>
+						<p><a href="{{url}}">{{message}}</a></p> <!-- TO BE EDITED -->
+					</li>
+					{{ }}
+			</div>
+			<footer data-role="footer" data-theme="c" data-position="fixed">
+				<div class="footer-nav" data-role="navbar">
+					<ul>
+						<li><a href="#profile" id="profile-button" data-icon="bars">Profile</a></li>
+						<li><a href="#notifications" id="notifications-button" data-icon="alert">Notifications</a>
+						</li>
+						<li><a href="#favourites" id="favourites-button" data-icon="star">Favourites</a></li>
+						<li><a href="#search" id="search-button" data-icon="gear">Search</a></li>
+						<li><a href="#smile" id="smile-button" data-icon="custom">Send A Smile</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+		
+		<div data-role="page" data-title="Send A Smile" id="smile">
+			<header data-role="header">
+				<a href="#" data-icon="arrow-l">Sign Out</a>
+				<h1>DHS Send A Smile :)</h1>
+			</header>
+			<div data-role="content">
+				<form>
+					<div data-role="fieldcontain">
+						<label for="selectfriend" class="ui-hidden-accessible">Choose A Friend: </label>
+						<select name="selectfriend" id="selectfriend">
+							<option value="0" selected="selected" disabled="disabled">Choose A Friend</option>
+							<option value="1">The 1st Option</option>
+							<option value="2">The 2nd Option</option>
+							<option value="3">The 3rd Option</option>
+							<option value="4">The 4th Option</option>
+						</select>
+						<label for="selectsmile" class="ui-hidden-accessible">Select A Smile: </label>
+						<select name="selectsmile" id="selectsmile">
+							<optgroup label="Smiles">
+								<option value="alpha" selected="selected" disabled="disabled">Select A Smile</option>
+								<option value="a"><img src="/static/images/smiles/smile.png">Classic Smile</option>
+								<option value="b"><img src="/static/images/smiles/wink.png">Wink</option>
+								<option value="c"><img src="/static/images/smiles/the_colon_3.png">:3</option>
+								<option value="d"><img src="/static/images/smiles/laugh.png">Laugh</option>
+								<option value="e"><img src="/static/images/smiles/chillax.png">Chillax</option>
+							</optgroup>
+							<optgroup label="Gifts">
+								<option value="x"><img src="/static/images/smiles/cake.png">Cake</option>
+								<option value="y"><img src="/static/images/smiles/jiayou.png">Jiayou</option>
+								<option value="z"><img src="/static/images/smiles/flower.png">Flower</option>
+							</optgroup>
+						</select>
+					</div>
+					<input type='submit' name='submit' id='submit' value='Send A Smile :)'/>
+				</form>
+			</div>
+			<footer data-role="footer" data-theme="c" data-position="fixed">
+				<div class="footer-nav" data-role="navbar">
+					<ul>
+						<li><a href="#profile" id="profile-button" data-icon="bars">Profile</a></li>
+						<li><a href="#notifications" id="notifications-button" data-icon="alert">Notifications</a>
+						</li>
+						<li><a href="#favourites" id="favourites-button" data-icon="star">Favourites</a></li>
+						<li><a href="#search" id="search-button" data-icon="gear">Search</a></li>
+						<li><a href="#smile" id="smile-button" data-icon="custom">Send A Smile</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+		
+		<div data-role="page" data-title="search" id="search">
+			<header data-role="header">
+				<a href="#" data-icon="arrow-l">Sign Out</a>
+				<h1>DHS Send A Smile :)</h1>
+			</header>
+			<div data-role="content">
+				<!-- Search Box -->
+				<ul data-role="listview" data-filter="true" data-filter-placeholder="Search people..." 
+				data-inset="true">
+					<li><a href="#">Lim Ah Seng</a></li>
+					<li><a href="#">Tan Ah Beng</a></li>
+					<li><a href="#">Lee Ah Meng</a></li>
+					<li><a href="#">Ong Ah Huey</a></li>
+				</ul>
+			</div>
+			<footer data-role="footer" data-theme="c" data-position="fixed">
+				<div class="footer-nav" data-role="navbar">
+					<ul>
+						<li><a href="#profile" id="profile-button" data-icon="bars">Profile</a></li>
+						<li><a href="#notifications" id="notifications-button" data-icon="alert">Notifications</a>
+						</li>
+						<li><a href="#favourites" id="favourites-button" data-icon="star">Favourites</a></li>
+						<li><a href="#search" id="search-button" data-icon="gear">Search</a></li>
+						<li><a href="#smile" id="smile-button" data-icon="custom">Send A Smile</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

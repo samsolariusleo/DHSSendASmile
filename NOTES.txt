@@ -1,0 +1,6 @@
+NOTES:
+
+- img src doesn't work in options
+- need to complete favourites, profile, notifications for the database thingies
+- need a database of students' names
+- need to complete sign in page
