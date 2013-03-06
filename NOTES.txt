@@ -4,3 +4,7 @@ NOTES:
 - need to complete favourites, profile, notifications for the database thingies
 - need a database of students' names
 - need to complete sign in page
+
+http://view.jquerymobile.com/1.3.0/
+http://jquerymobile.com/demos/1.0.1/docs/forms/forms-sample.html
+http://jquerymobile.com/demos/1.0.1/docs/forms/forms-themes.html
