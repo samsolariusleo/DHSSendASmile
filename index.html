@@ -1,0 +1,287 @@
+<DOCTYPE html>
+<html>
+	<head>
+		<meta charset='UTF-8'/>
+		<title>DHS Send A Smile :)</title>
+		
+		<!-- My Own CSS -->
+		<link rel="stylesheet" href="static/css/style.css"/>
+		
+		<!-- JQM Structure -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile.structure-1.3.0.min.css" />
+		<link rel="stylesheet" href="static/js/jquery.mobile-1.3.0.min.css" />
+		<link rel="stylesheet" href="static/js/jquery.mobile.structure-1.3.0.min.css" />
+		<!-- JQM Custom Theme -->
+		<link rel="stylesheet" href="static/js/jquery.mobile.theme-1.3.0.min.css" />
+		<!-- JQ Core -->
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<!-- JQM -->
+		<script src="static/js/jquery.mobile-1.3.0.min.js"></script>
+		
+		<!-- viewport -->
+		<meta name="viewport" content="width=device-width">
+		<!-- iOS stuff -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="white">
+		<!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+		<meta http-equiv="cleartype" content="on">
+		<!-- For mobile browsers that do not recognize the viewport tag -->
+		<meta name="MobileOptimized" content="320" />
+		<script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-39222836-1']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
+	</head>
+	<body>
+		<div data-role="page" data-title="Event Log" id="eventlog">
+			<header data-role="header">
+				<a href="/signout" data-icon="arrow-l">Sign Out</a>
+				<h1>DHS Send A Smile :)</h1>
+			</header>
+			<div data-role="content">
+				{{error_msg}}
+				{{error_receiver}}
+				<script>
+					$('#mylist').listview('refresh');
+				</script>
+				<ul class="notificationlist" data-role="listview">
+					<!-- Contains your database element -->
+					{% for p in posts %}
+						{% if sender == user.get_current_user() or receiver == user.get_current_user() %}
+							<li>
+								<img src='static/images/{{p.smile}}.png' height = 30px width = 30px>
+								<p><b>{{p.sender.user}}</b> sent {{p.receiver}} a smile!</p>
+								{% if message %}
+									<p>{{p.message}}</p>
+								{% endif %}
+								<p style="text-align: right">
+								{{'{0.day}/{0.month}/{0.year} {0.hour}:{0.minute}'.format(p.create)}}</p>
+								
+							</li>
+						{% endif %}
+					{% endfor %}
+				</ul>	
+			</div>
+			<footer data-role="footer" data-id='footer' data-theme="c" data-position="fixed">
+				<div class="footer-nav" data-role="navbar">
+					<ul>
+						<li><a href="#eventlog" id="eventlog-button" data-icon="alert">Event Log</a>
+						</li><!--
+						<li><a href="#favourites" id="favourites-button" data-icon="star">Favourites</a></li>
+						-->
+						<li><a href="#search" id="search-button" data-icon="search">Search</a></li>
+						<li><a href="#smile" id="smile-button" data-icon="edit">Send A Smile</a></li>
+						<li><a href="#about" id="about-button" data-icon="info">About</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+				
+<!-- 		<div data-role="page" data-title="My Favourites" id="favourites">
+			<header data-role="header">
+				<a href="/signout" data-icon="arrow-l">Sign Out</a>
+				<h1>DHS Send A Smile :)</h1>
+			</header>
+			<div data-role="content">
+				<script>
+					$('#mylist').listview('refresh');
+				</script>
+				<ul class="favouriteslist" data-role="listview">
+					<!-- Contains your database element --><!--
+					{% for f in favourites %}
+					<li>
+						<h3>{{f.favs}}</h3>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<footer data-role="footer" data-id='footer' data-theme="c" data-position="fixed">
+				<div class="footer-nav" data-role="navbar">
+					<ul>
+						<li><a href="#eventlog" id="eventlog-button" data-icon="alert">Event Log</a>
+						</li>
+						<li><a href="#favourites" id="favourites-button" data-icon="star">Favourites</a></li>
+						<li><a href="#search" id="search-button" data-icon="search">Search</a></li>
+						<li><a href="#smile" id="smile-button" data-icon="edit">Send A Smile</a></li>
+						<li><a href="#about" id="about-button" data-icon="info">About</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+ -->		
+		<div data-role="page" data-title="Send A Smile" id="smile">
+			<header data-role="header">
+				<a href="/signout" data-icon="arrow-l">Sign Out</a>
+				<h1>DHS Send A Smile :)</h1>
+			</header>
+			<div data-role="content">
+				<h2>Sending A Smile Has Never Been Easier!</h2>
+				<aside>
+					<p>“Everytime you smile at someone, it is an action of love, a gift to that person, a beautiful 
+					thing.” </p>
+					<p style="text-align: right">-- Mother Teresa</p>
+				</aside>
+				<br>
+				<aside>
+					<p>“What sunshine is to flowers, smiles are to humanity. These are but trifles, to be sure; 
+					but scattered along life's pathway, the good they do is inconceivable.” </p>
+					<p style="text-align: right">-- Joseph Addison</p>
+				</aside>
+				<br>
+				<br>
+				<p>Simply follow the steps listed below to send a smile to a friend! Who knows, maybe you'll
+				get one in return? :D</p>
+				<p>What are you waiting for? Send a smile to a friend today!</p>
+				<br>
+				<form method='post'>
+					<div data-role="fieldcontain">
+						<h3>Step 1: Insert Your Friend's Username</h3>
+						<p>E.g. For Lim Ah Seng, the username should be lim.ahseng</p>
+						<input type='text' name='receiver' id='receiver' placeholder='Enter Username Here!'>
+						<h3>Step 2: Select Smile/Gift</h3>
+						<fieldset data-role="controlgroup" data-type="horizontal">
+							<!-- Smiles -->
+							<input type="radio" name="smile" id="a" value="a" checked="checked">
+							<label for="a">Classic <img src='static/images/smiles/a.png'></label>
+							<input type="radio" name="smile" id="b" value="b">
+							<label for="b">Wink <img src="static/images/smiles/b.png"></label>
+							<input type="radio" name="smile" id="c" value="c">
+							<label for="c">:3 <img src="static/images/smiles/c.png"></label>
+							<input type="radio" name="smile" id="d" value="d">
+							<label for="d">Laugh <img src="static/images/smiles/d.png"></label>
+							<input type="radio" name="smile" id="e" value="e">
+							<label for="e">Chillax <img src="static/images/smiles/e.png"></label>
+							<!-- Gifts -->
+							<input type="radio" name="smile" id="x" value="x">
+							<label for="x">Cake <img src="static/images/smiles/x.png"></label>
+							<input type="radio" name="smile" id="y" value="y">
+							<label for="y">Cheer <img src="static/images/smiles/y.png"></label>
+							<input type="radio" name="smile" id="z" value="z">
+							<label for="z">Flower <img src="static/images/smiles/z.png"></label>
+						</fieldset>
+					</div>
+					<h3>Step 3: Attach A Short Message (Optional)</h3>
+					<p>Messages are limited to 140 characters.</p>
+					<input type='text' name='message' id='message' placeholder='Type Your Message Here!'>
+					<h3>Step 4: Make A Friend Happy</h3>
+					<input type='submit' value='Send A Smile :)'>
+				</form>
+			</div>
+			<footer data-role="footer" data-id='footer' data-theme="c" data-position="fixed">
+				<div class="footer-nav" data-role="navbar">
+					<ul>
+						<li><a href="#eventlog" id="eventlog-button" data-icon="alert">Event Log</a>
+						</li><!--
+						<li><a href="#favourites" id="favourites-button" data-icon="star">Favourites</a></li>
+						-->
+						<li><a href="#search" id="search-button" data-icon="search">Search</a></li>
+						<li><a href="#smile" id="smile-button" data-icon="edit">Send A Smile</a></li>
+						<li><a href="#about" id="about-button" data-icon="info">About</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+		
+		<div data-role="page" data-title="search" id="search">
+			<header data-role="header">
+				<a href="/signout" data-icon="arrow-l">Sign Out</a>
+				<h1>DHS Send A Smile :)</h1>
+			</header>
+			
+			<div data-role="content">
+				<ul data-role="listview" data-filter="true" data-filter-placeholder="Search people..." data-inset="true">
+					{% for p in personas %}
+						<li>{{p.classes}} | {{p.nickname}} | {{p.username}}</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<footer data-role="footer" data-id='footer' data-theme="c" data-position="fixed">
+				<div class="footer-nav" data-role="navbar">
+					<ul>
+						<li><a href="#eventlog" id="eventlog-button" data-icon="alert">Event Log</a>
+						</li><!--
+						<li><a href="#favourites" id="favourites-button" data-icon="star">Favourites</a></li>
+						-->
+						<li><a href="#search" id="search-button" data-icon="search">Search</a></li>
+						<li><a href="#smile" id="smile-button" data-icon="edit">Send A Smile</a></li>
+						<li><a href="#about" id="about-button" data-icon="info">About</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+		
+		<div data-role="page" data-title="about" id="about">
+			<header data-role="header">
+				<a href="/signout" data-icon="arrow-l">Sign Out</a>
+				<h1>DHS Send A Smile :)</h1>
+			</header>
+			
+			<div data-role="content">
+				<h2>About "Send A Smile"</h2>
+				<p>"Send A Smile" is an app developed on Google App Engine. The app allows you to send little acts 
+				of encouragement to each other through the use of "Smiles" and Virtual Gifts. The app was created
+				to motivate people to go on with life and keep on smiling no matter how tough the world gets.</p>
+				<p>Users may make use of the app in these scenarios:</p>
+				<ul>
+					<li>Sending Birthday Wishes <img src='static/images/smiles/x.png'></li>
+					<li>Best Wishes for Students Going for Competitions <img src='static/images/smiles/y.png'>
+					</li>
+					<li>Encourage Friends to Be Happy <img src='static/images/smiles/a.png'></li>
+				</ul>
+				<p><a href='#smile'>Click Here to Send A Smile Now!</a></p>
+				<br>
+				<h3>"Send A Smile"</h3>
+					<p>Version: Oreo 4.2.1</p>
+					<p>Copyright &copy 2013 DHS Send A Smile</p>
+					<p style='font-style:italic'>Note: This app is still in testing, thus not all features will 
+					be in use.</p>
+				<br>
+				<h3>About the Creator</h3>
+				<article>
+					<p>
+						<img id='avatar' src='static/images/avatar.jpg' alt='Creator of "Send A Smile"' 
+						title='Gan Jing Ying'>
+						<span id='aboutme'>
+							<p>Gan Jing Ying (Sam) is a H2 Computing student from Dunman High School.</p>
+							
+							<p>She was from Infocomm Club in Junior High and thus has some basic knowledge of
+							Computing. However, she is still a beginner at this and thus is struggling to learn.
+							Sam wishes that this app could have been better, but apologises for how pathetic
+							it currently is. Hopefully, the app would be out of beta soon... :/</p>
+							
+							<p>In the future, Sam hopes to be a person who can make others smile. And thus,
+							she has built this app as a start.</p>
+							
+							<p>
+							For more information,
+							click <a href='http://people.dhs.sg/ganjingying'>here</a>.
+							</p>
+						</span>
+					</p>
+				</article>
+			</div>
+			<footer data-role="footer" data-id='footer' data-theme="c" data-position="fixed">
+				<div class="footer-nav" data-role="navbar">
+					<ul>
+						<li><a href="#eventlog" id="eventlog-button" data-icon="alert">Event Log</a>
+						</li><!--
+						<li><a href="#favourites" id="favourites-button" data-icon="star">Favourites</a></li>
+						-->
+						<li><a href="#search" id="search-button" data-icon="search">Search</a></li>
+						<li><a href="#smile" id="smile-button" data-icon="edit">Send A Smile</a></li>
+						<li><a href="#about" id="about-button" data-icon="info">About</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>	
+	</body>
+</html>
